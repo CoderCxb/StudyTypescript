@@ -1,22 +1,12 @@
-interface Person{
-    name:string;
-    age:number;
-}
-// 接收类型 接口 类, 不接受对象
-let key:keyof Person;
-key='age';
+type a = string | number;
+type Person = {
+  [t in a]: any;
+};
+// keyof 遍历某种类型/对象的属性，并提取其属性的名称
+type t1 = keyof {}; // never
+type t4 = keyof object; // never
+type t2 = keyof any; // string | number | symbol
+type t3 = keyof Person; // string | numbe
 
-let obj={
-    n:'',
-    a:1,
-}
-class C{
-    name:string='';
-    age:number=1;
-}
-class D{
-    sex:string='';
-}
-let key2:keyof (C & D);
-key2='sex'
-export{}
+
+export { }
