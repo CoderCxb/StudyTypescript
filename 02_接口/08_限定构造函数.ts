@@ -1,4 +1,5 @@
-// 注意：类型中的constructor限制会被忽略 即写了也没用 需要写成 new ():instanceType 形式
+// 注意：在TS中 函数的参数个数限制在定义时是没有检查的 只有在使用的时候才有检查
+// 如果没有定义构造函数 则会使用默认的空参数构造函数 所以也不会报错
 interface ClockInterface {
 	instanceProperty: string;
 }
