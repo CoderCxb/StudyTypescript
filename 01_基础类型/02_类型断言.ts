@@ -11,11 +11,11 @@ function hello(str: str_num): str is string {
 }
 // !用法
 // 用在变量前表示取反
-// 用在赋值的内容后时，使null和undefined类型可以赋值给其他类型并通过编译
+// 用在赋值的内容后时，使null和undefined类型可以赋值给其他类型并通过编译  不建议使用后置!
 
 // 默认情况下 undefined和null是可以赋值给任意类型的 但是在tsconfig.json中开启如下选项
-// 则undefined和null只能复制给自己和unknown和any
 // "strictNullChecks": true
+// 则undefined和null只能复制给自己和unknown和any
 
 // 当开启以上选项后 想将undefined和null赋值给其他类型 则需要加上后缀!
 

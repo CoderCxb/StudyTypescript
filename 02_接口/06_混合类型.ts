@@ -1,24 +1,18 @@
-interface Counter{
-    (start:number):number;
-    age:number;
+// 混合类型,即本身是一个函数,又限定了函数(函数也是对象)上的属性
+interface Counter {
+	// 限定函数本身
+	(start: number): number;
+	// 限定函数上的属性
+	num: number;
 }
 
-// 实现混合类型的接口不能直接 :接口名 
-// 1.可以使用断言 
-let f4=<Counter>function(start:number){
-    return 1;
-};
+// 初始赋值的时候不能一次性完成 需要分两步
+let counter = (start) => 1;
+(counter as Counter).num = 18;
 
-// 2. 作为一个参数的限定传入一个函数
-function test(func:Counter){
-    // func.age=10;
-    return func
+function test(func: Counter) {
+	return func;
 }
 
-test(f4)(1)
-
-f4.age=22;
-f4(1);
-console.log(f4['age'])
-
-export{}
+console.log(test(<Counter>counter)); //[Function: counter] { num: 18 } 一个包含函数的属性
+export {};

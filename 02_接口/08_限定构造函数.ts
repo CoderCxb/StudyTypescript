@@ -10,10 +10,14 @@ interface ClockConstructor {
 	new (hour: number, minute: number): ClockInterface;
 }
 
-// ClockConstructor限制的是Clock类上的属性 即静态属性/方法和构造函数
+// ClockConstructor限制的是Clock类上的属性 即静态属性/方法(类的静态属性和方法定义在构造函数上)和构造函数
 // ClockInterface限制的是Clock实例出来的对象上的属性
 const Clock: ClockConstructor = class Clock implements ClockInterface {
 	instanceProperty = '实例属性';
 	static staticProperty = '静态属性';
-	constructor(hour: number, minute: number) {}
+	// constructor(hour: number, minute: number) {}
+	constructor() {} // 定义不会检查
 };
+
+// 使用会检查  new Clock(); 报错
+let clock = new Clock(12, 0);

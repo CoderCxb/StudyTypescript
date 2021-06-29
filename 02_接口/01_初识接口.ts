@@ -1,10 +1,10 @@
 interface Person {
-	// readonly标记成自读属性
+	// readonly标记成只读属性
 	readonly name: string;
 	age: number;
 	sex: string;
 	like?: string; //可选参数
-	[propName: string]: any; // 接收所有string类型的属性名 any类型属性值
+	[propName: string]: any; // 接收所有string类型的属性名 any类型属性值 不一定要写在最后
 	// 对于方法的参数和返回值进行限定
 	// test(c:string,g:string):number
 	test(c: string, g: string): void;
