@@ -1,16 +1,18 @@
-interface Named{
-    name:string;
-}
-// 注意：如果是对x 进行直接赋值 x={} 那么 其中的限定属性不能多也不能少
-// 但是如果是将一个变量赋值给x  那么属性可以多 不能少 
-let x:Named;
-let y={
-    name:'cxb',
-    age:22
+interface OnlyName {
+	name: string;
 }
 
-x=y;
-console.log(x)
+// 通过初始化直接赋值的方式 值必须和接口保持完全一致 即属性不能多也不能少
+let marco: OnlyName = {
+	name: 'marco',
+};
 
+let evan: OnlyName;
+// 通过另一个变量进行间接赋值的时候 属性可以多不能少
+let info = {
+	name: 'evan',
+	age: 22,
+};
+evan = info;
 
-export{}
+export {};

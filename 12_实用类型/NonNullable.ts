@@ -1,4 +1,8 @@
 // NonNullable<Type> 去除Type中的null和undefined类型
-type N = NonNullable<string | number | null | undefined>
 
-export { }
+// 实现
+// type NonNullable<T> = T extends null | undefined ? never : T;
+
+type N = NonNullable<string | number | null | undefined>;
+
+export {};

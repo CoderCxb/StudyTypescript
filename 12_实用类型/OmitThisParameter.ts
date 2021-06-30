@@ -1,12 +1,11 @@
-// OmitThisParameter<Type>
-// 忽略函数的this参数后 返回函数的类型
+// OmitThisParameter<Type>  省略函数中名字为this的参数
 function fn(this: number) {
-  return 110;
+	return 888;
 }
 
-// 获取this参数的类型
-type TP = OmitThisParameter<typeof fn>  // ()=>number
+// 省略函数中的名为this的参数
+type OTP = OmitThisParameter<typeof fn>; // ()=>number
 
-let tp: TP = fn.bind(100)
+let otp: OTP = () => 666;
 
-export { }
+export {};

@@ -1,9 +1,9 @@
 namespace Space {
-  export let name: string;
+	export let name: string;
 }
 
 namespace Space {
-  export let age: number;
+	export let age: number;
 }
 
 console.log(Space.name);

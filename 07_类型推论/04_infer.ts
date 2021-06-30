@@ -7,7 +7,28 @@ type Fun2 = (str: string) => string;
 type TF1 = InferType<Fun1>; // fun1的参数和返回值不同 因此extends结果为false 所以类型为 number
 type TF2 = InferType<Fun2>; // fun2的参数和返回值相同 因此extends结果为true  所以类型为 string
 
-type Infer2Type<T> = T extends infer R ? R : number;
-type Result = Infer2Type<string>;
+// infer类似于any 任意类型 extends infer R 都是true
+type Infer2Type<T> = T extends infer R ? string : number;
+type Result = Infer2Type<undefined>;
+
+// ReturnType就是通过infer实现的
+// 1. ReturnType接收一个extends自(...args:any)=>any的函数的类型
+// 2. T (...args: any) => infer R ? R : any;
+//    T (...args: any) => infer R 永远成立 所以返回的一直都是 R , 而R表示的就是函数的返回值类型
+type MyReturnType<T extends (...args: any) => any> = T extends (
+	...args: any
+) => infer R
+	? R
+	: any;
+
+function test() {
+	if (Math.random() > 0.5) {
+		return true;
+	} else {
+		return Math.random();
+	}
+}
+
+type t = MyReturnType<typeof test>;
 
 export {};

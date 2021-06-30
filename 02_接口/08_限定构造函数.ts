@@ -12,7 +12,7 @@ interface ClockConstructor {
 
 // ClockConstructor限制的是Clock类上的属性 即静态属性/方法(类的静态属性和方法定义在构造函数上)和构造函数
 // ClockInterface限制的是Clock实例出来的对象上的属性
-const Clock: ClockConstructor = class Clock implements ClockInterface {
+const Clock: ClockConstructor = class implements ClockInterface {
 	instanceProperty = '实例属性';
 	static staticProperty = '静态属性';
 	// constructor(hour: number, minute: number) {}

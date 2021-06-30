@@ -11,7 +11,7 @@ let arr = [new Cat()];
 arr.push(new Person());
 console.log(arr);
 
-// 基本等同于 new Array<number,string,null>()
+// 基本等同于 let arr2: (string | number | null)[]
 let arr2 = [1, '2', null];
 
 export {};

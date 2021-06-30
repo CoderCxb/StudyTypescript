@@ -11,6 +11,9 @@ class Animal {
 	}
 }
 
+// 继承只能继承实例属性和方法 无法继承静态方法 因为静态方法是定义在类(类是构造函数的变形,也是对象)上
+// 类的继承本质上还是通过原型链的方式进行继承 所以只会继承原型和其实例的属性和方法
+
 class Cat extends Animal {
 	public type: string;
 	constructor(name: string, age: number, type: string) {

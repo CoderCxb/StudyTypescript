@@ -21,10 +21,10 @@ function getSmallPet(): Fish | Bird | String {
 let pet = getSmallPet();
 
 function isFish(pet: Fish | Bird | String): pet is Fish {
-	return (<Fish>pet).swim === undefined;
+	return (<Fish>pet).swim !== undefined;
 }
 function isBird(pet: Fish | Bird | String): pet is Bird {
-	return (<Bird>pet).fly === undefined;
+	return (<Bird>pet).fly !== undefined;
 }
 // pet.swim();  // 报错
 // 类型保护

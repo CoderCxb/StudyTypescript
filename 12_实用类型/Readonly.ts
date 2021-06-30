@@ -1,9 +1,11 @@
-import { ReadonlyKeyword } from 'typescript';
-
 type Person = {
 	name: string;
 	age: number;
 };
+
+// type Readonly<T> = {
+// 	readonly [K in keyof T]: T[K];
+// };
 
 type OptionalPerson = Readonly<Person>;
 // Partial<Type> 将type中的属性变成只读属性
@@ -22,8 +24,8 @@ let p2: OptionalPerson = {
 
 // TS提供了很多Readonly的子类型
 type RA = ReadonlyArray<string>;
-type RS = ReadonlySet<string>;
-type RM = ReadonlyMap<string, number>;
+// type RS = ReadonlySet<string>;
+// type RM = ReadonlyMap<string, number>;
 
 // 也可以使用const断言
 let arr = [1, 2, 3] as const;
